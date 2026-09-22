@@ -1,6 +1,7 @@
 Normalización:
   1FN - Primera Forma Normal  
       El modelo cumple todo en esta primera forma, cada uno de los 10 atributos toman valores atómicos y cada relación tiene su clave primaria definida.
+      
       CATEGORIA: nombre, descripcion y activa toman un único valor atómico por categoría (texto simple y booleano)
       PRODUCTO: todos sus atributos (nombre, material, precio_lista, stock_actual, dias_demora, etc.) toman un único valor por producto.
       PROMOCION: activa, fecha_inicio, fecha_fin, precio_promocional y nombre son atómicos. Cumple.
@@ -13,7 +14,8 @@ Normalización:
       ENVIO: costo_envio, direccion, modalidad, estado_envio, fecha_despacho y codigo_postal son atómicos. Cumple.
       
   2FN - Segunda Forma Normal
-      Todos los datos que no son la clave principal deben depender por completo de toda la clave, de todas la relaciones del diagrama la única con clave compuesta es VENTA_DETALLE (nro_renglon, id_venta).}
+      Todos los datos que no son la clave principal deben depender por completo de toda la clave, de todas la relaciones del diagrama la única con clave compuesta es VENTA_DETALLE (nro_renglon, id_venta).
+      
       CATEGORIA: clave simple (id_categoria) se cumple automáticamente al cumplir 1FN, Cumple.
       PRODUCTO: clave simple (id_producto) cumple automáticamente, Cumple.
       PROMOCION: clave simple (id_promocion) cumple automáticamente, Cumple.
@@ -27,6 +29,7 @@ Normalización:
 
   3FN - Tercera Forma Normal
       En esta forma se fija que ningún atributo no clave determine le valor de otro atributo no clave.
+      
       CATEGORIA: nombre, descripcion y activa son propiedades directas e independientes de la categoría; ninguno determina el valor de otro, Cumple.
       PRODUCTO: codigo es clave candidata (UNIQUE), son datos independientes entre sí, no se identifica que uno determine a otro, Cumple.
       PROMOCION: son atributos propios de esa promoción puntual, fecha_inicio no determina precio_promocional ni viceversa, Cumple.
