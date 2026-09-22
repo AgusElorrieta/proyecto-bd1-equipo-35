@@ -24,5 +24,5 @@ Enlaces o referencias a la evidencia en GitHub
 Qué aprendí
 
   Aprendí que normalizar no es solo chequear una lista de reglas contra el esquema, sino razonar sobre el significado real de los datos que es detectar 
-  una dependencia transitiva como la geográfica requiere entender la semántica del dominio
+  una dependencia transitiva como la geográfica requiere entender la semántica del dominio.
 
