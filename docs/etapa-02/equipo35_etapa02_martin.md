@@ -25,8 +25,10 @@ Integrante: Martin Espinoza
    Conflicto en pagos múltiples: Detectamos que restringir los pagos con una clave compuesta impedía registrar abonos sucesivos mediante el mismo medio de pago. La solución del identificador independiente resolvió esta limitación transaccional del negocio.
 
 5. Enlaces o referencias a la evidencia en GitHubCommits y archivos asociados en el repositorio
-      Subida y actualización del DER y del Esquema Relacional de la Etapa II.
+
+   Subida y actualización del DER y del Esquema Relacional de la Etapa II.
       Registro de modificaciones en las restricciones de tablas y claves foráneas.
 
-6. Qué aprendí
-       Comprendí la importancia de alinear estrictamente las decisiones de diseño lógico con las reglas operativas del mundo real (como los pagos parciales y las políticas de stock), evitando que restricciones técnicas rígidas bloqueen transacciones válidas del negocio.
+7. Qué aprendí
+
+    Comprendí la importancia de alinear estrictamente las decisiones de diseño lógico con las reglas operativas del mundo real (como los pagos parciales y las políticas de stock), evitando que restricciones técnicas rígidas bloqueen transacciones válidas del negocio.
