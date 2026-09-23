@@ -201,7 +201,7 @@ Esto permite registrar de forma clara la participación de cada miembro del equi
 
 Actualmente el equipo se encuentra trabajando en la:
 
-**Etapa III — Modelado Conceptual y Lógico**
+**Etapa III — Implementación física — DDL y DML**
 
 **Próximos objetivos:**
 *   **Creación de Scripts DDL:** Codificar las sentencias `CREATE TABLE` para construir la base de datos relacional, definiendo correctamente los tipos de datos, Claves Primarias (PK) y Claves Foráneas (FK).
