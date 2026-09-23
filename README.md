@@ -15,7 +15,7 @@
 
 - Agustin Elorrieta
 - Renato Roman
-- Emmanuel Ottero
+- Emmanuel Otero
 - Lucas Lombardi
 - Martin Espinoza
 
@@ -79,8 +79,8 @@ proyecto-bd1-equipo-35/
 | Etapa | Descripción | Estado |
 |---|---|---|
 | I | Requerimientos y dominio del negocio | ✅ Completada |
-| II | Modelado conceptual y lógico | 🚧 En desarrollo |
-| III | Implementación física — DDL y DML | ⏳ Pendiente |
+| II | Modelado conceptual y lógico | ✅ Completada |
+| III | Implementación física — DDL y DML | 🚧 En desarrollo |
 | IV | Consultas y casos de uso | ⏳ Pendiente |
 | V | Temas técnicos avanzados | ⏳ Pendiente |
 
@@ -201,14 +201,14 @@ Esto permite registrar de forma clara la participación de cada miembro del equi
 
 Actualmente el equipo se encuentra trabajando en la:
 
-**Etapa II — Modelado Conceptual y Lógico**
+**Etapa III — Modelado Conceptual y Lógico**
 
-Próximos objetivos:
-
-- Completar el DER
-- Transformarlo al modelo relacional
-- Justificar la normalización hasta 3FN
-- Documentar las contribuciones individuales
+**Próximos objetivos:**
+*   **Creación de Scripts DDL:** Codificar las sentencias `CREATE TABLE` para construir la base de datos relacional, definiendo correctamente los tipos de datos, Claves Primarias (PK) y Claves Foráneas (FK).
+*   **Implementación de Restricciones:** Traducir las reglas de negocio a restricciones de base de datos (ej. restricciones `CHECK` para los estados de venta, `UNIQUE` para teléfonos, y reglas de borrado en cascada).
+*   **Creación de Scripts DML:** Generar las sentencias `INSERT` para poblar las tablas con datos de prueba iniciales (clientes, productos, ventas, etc.).
+*   **Organización del Repositorio:** Guardar los scripts generados en las carpetas correspondientes (`sql/ddl/` y `sql/dml/`).
+*   **Manifiesto Individual:** Preparar y documentar la participación individual para la entrega del miércoles 30/09.
 
 ---
 
