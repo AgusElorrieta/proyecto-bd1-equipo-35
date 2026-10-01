@@ -95,6 +95,11 @@ CREATE TABLE Producto (
 
     CONSTRAINT CK_Producto_PorcentajeSenia
         CHECK (porcentaje_senia BETWEEN 0 AND 100)
+
+    CONSTRAINT CK_Producto_SeniaConsistente
+        CHECK (
+            (requiere_senia = 0 AND porcentaje_senia = 0) OR
+            (requiere_senia = 1 AND porcentaje_senia > 0)
 );
 GO
 
@@ -257,6 +262,9 @@ CREATE TABLE Venta_Detalle (
 
     CONSTRAINT CK_VentaDetalle_Descuento
         CHECK (descuento_aplicado >= 0)
+
+    CONSTRAINT CK_VentaDetalle_DescuentoMaximo
+        CHECK (descuento_aplicado <= precio_unitario * cantidad)
 );
 GO
 
