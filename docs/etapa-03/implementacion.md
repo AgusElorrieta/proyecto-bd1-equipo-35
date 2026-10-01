@@ -70,6 +70,26 @@ Posteriormente se ejecutó el DML y se verificó la cantidad de registros cargad
 
 También se verificaron las claves y restricciones del modelo mediante las herramientas de SQL Server Management Studio.
 
+#### 4.1 Pruebas de Integridad y Restricciones  
+Para garantizar la consistencia de los datos, se ejecutaron pruebas de estrés sobre las restricciones de integridad. Las operaciones DML están intrínsecamente ligadas a las restricciones definidas en el DDL, por lo que cualquier intento de inserción que viole una regla hace que la operación falle de inmediato[cite: 22]. 
+
+Las siguientes sentencias fueron ejecutadas y rechazadas correctamente por el motor de SQL Server, por lo que no se incluyeron en el script final de poblado `datos_prueba.sql`:
+
+* **Prueba de CHECK (Stock Negativo):** Se intentó insertar un producto con `stock_actual = -1`. La operación falló protegiendo la restricción `CHECK (stock_actual >= 0)`.
+  ```sql
+  INSERT INTO Producto (id_producto, codigo, nombre, precio_lista, stock_actual, modalidad_disponible, id_categoria) 
+  VALUES (99, 'TEST-01', 'Mate Prueba', 1000.00, -1, 'inmediata', 1);
+
+* **Prueba de CHECK (Cantidad Cero):** Se intentó registrar un detalle de venta con `cantidad = 0`. El motor rechazó la inserción cumpliendo la regla lógica del negocio.
+  ```sql
+  INSERT INTO Venta_Detalle (id_venta, nro_renglon, id_producto, cantidad, precio_unitario, descuento_aplicado) 
+  VALUES (1, 99, 1, 0, 35000.00, 0.00);
+
+* **Prueba de UNIQUE (Código Duplicado):** Se intentó insertar un producto utilizando el código existente M-CAL-01. La operación fue abortada para mantener la unicidad del catálogo.
+  ```sql
+  INSERT INTO Producto (id_producto, codigo, nombre, precio_lista, stock_actual, modalidad_disponible, id_categoria)
+  VALUES (100, 'M-CAL-01', 'Mate Clonado', 1000.00, 5, 'inmediata', 1);
+
 ## 5. Orden de ejecución
 
 Para reconstruir la base de datos se deben ejecutar los scripts en el siguiente orden:
