@@ -1,39 +1,46 @@
-# Manifiesto Individual — Etapa III: Implementación Física
-**Equipo:** 35
-**Proyecto:** MateSereño — Base de Datos I
-**Integrante:** Emmanuel Otero
-**Etapa:** III
+# Contribución individual -- Etapa 03
 
----
+**Equipo:** 35  
+**Integrante:** Emmanuel Ottero  
+**Fecha:** 2026-09-30  
 
-**Qué hice:** 
-Me encargué de la redacción y actualización de la documentación general del proyecto y del archivo `README.md` principal del repositorio. 
-Documenté formalmente que la Etapa III se encuentra finalizada, especifiqué que el motor de base de datos utilizado es SQL Server 2022 Express, 
-e indiqué de forma clara las rutas de los archivos generados (`sql/ddl/crear_bd.sql` y `sql/dml/datos_prueba.sql`) junto con las instrucciones 
-y el orden estricto para su correcta ejecución.
+## 1. Aporte realizado
 
-**En qué participé:** 
-Participé en la consolidación del entregable final de la etapa. Mientras mis compañeros se encargaban de codificar las restricciones, los datos 
-de prueba y realizar las pruebas de integridad (comprobación de PK, FK, CHECK, etc.), mi rol fue coordinar que todo ese trabajo técnico quedara 
-correctamente realizado, referenciado y explicado para que cualquier usuario que clone el repositorio sepa cómo desplegar la base de datos sin errores.
+En esta etapa me encargué principalmente de la redacción y actualización de la documentación general del proyecto y del archivo `README.md` principal del repositorio. 
 
-**Qué decisión ayudé a tomar:** 
-Ayudé a definir y documentar el flujo de despliegue de la base de datos. Se decidió establecer como regla estricta en el README que el script DDL 
-(Data Definition Language) debe ejecutarse en su totalidad antes que el script DML (Data Manipulation Language). Esto es fundamental para 
-garantizar que primero se creen las tablas "fuertes" (padres) y luego las "débiles" (hijas), asegurando que al momento de insertar los 8 registros
-de prueba por tabla las reglas de integridad referencial (claves foráneas) ya estén operativas.
+Documenté formalmente que la Etapa III se encuentra finalizada, especifiqué que el motor de base de datos utilizado es SQL Server 2022 Express, e indiqué de forma clara las rutas de los scripts generados (`sql/ddl/crear_bd.sql` y `sql/dml/datos_prueba.sql`).
 
-**Qué problema encontré/resolví:** 
-Identifiqué que si simplemente subíamos los scripts SQL al repositorio, un tercero podría intentar ejecutar el poblado de datos (DML) antes de 
-tener la estructura completa, o ejecutar los `INSERT` en un orden incorrecto, lo cual causaría errores de violación de Foreign Keys. 
-Resolví esto redactando una guía clara de "paso a paso" en la portada del repositorio, eliminando cualquier ambigüedad sobre el proceso de 
-instalación y el motor a utilizar.
+## 2. Decisiones en las que participé
 
-**Enlaces a la evidencia en GitHub:**
-- **Archivo modificado:** `README.md` y `docs/etapa-03/equipo35_etapa03_ema.md`
-- **Commit:** `Actualizacion README con implementacion de etapa 3`
+Participé en la consolidación del entregable final y ayudé a definir el flujo de despliegue de la base de datos en el repositorio. 
 
-**Qué aprendí:** 
-Comprendí que la fase de diseño físico no termina únicamente con la escritura de un código SQL libre de errores. La documentación técnica y 
-el manual de despliegue son igual de importantes; un esquema relacional perfectamente normalizado y con restricciones robustas no es funcional 
-si el equipo no comunica claramente los requerimientos del entorno (SQL Server 2022 Express) y los pasos para compilar la base de datos de forma segura.
+Se decidió establecer como regla estricta (y dejarlo documentado) que el script DDL debe ejecutarse en su totalidad antes que el script DML. Esto garantiza que primero se creen las tablas con sus claves primarias y foráneas, asegurando que al momento de insertar los datos de prueba las reglas de integridad ya estén operativas.
+
+## 3. Problemas o dificultades identificadas
+
+Identifiqué que si simplemente subíamos los scripts SQL a las carpetas, cualquier persona (o el evaluador) que clone el repositorio podría intentar ejecutar el poblado de datos (DML) antes de tener la estructura completa, o ejecutar los `INSERT` en un orden incorrecto.
+
+Esto hubiera causado errores inmediatos de violación de Foreign Keys o de tablas inexistentes.
+
+## 4. Soluciones o propuestas realizadas
+
+Para resolver este problema, redacté una guía de "paso a paso" directamente en la portada del repositorio (`README.md`). 
+
+De esta forma, eliminé cualquier ambigüedad sobre el proceso de instalación, especificando claramente el orden de ejecución estricto de los scripts para que la base de datos se compile sin arrojar errores.
+
+## 5. Evidencias en el repositorio
+
+Archivos relacionados con mi aporte:
+
+- `README.md`
+- `docs/etapa-03/equipo35_etapa03_ema.md`
+
+Commit relacionado:
+
+- `Actualiza README con implementacion de etapa 3`
+
+## 6. Reflexión individual
+
+En esta etapa comprendí que la fase de diseño físico no termina únicamente con la escritura de un código SQL libre de errores. 
+
+La documentación técnica y el manual de despliegue son igual de importantes; un esquema relacional perfectamente normalizado y con restricciones robustas no es funcional si no comunicamos claramente los requerimientos del entorno y los pasos para compilar la base de datos de forma segura.
