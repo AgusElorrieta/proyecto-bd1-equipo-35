@@ -80,8 +80,8 @@ proyecto-bd1-equipo-35/
 |---|---|---|
 | I | Requerimientos y dominio del negocio | ✅ Completada |
 | II | Modelado conceptual y lógico | ✅ Completada |
-| III | Implementación física — DDL y DML | 🚧 En desarrollo |
-| IV | Consultas y casos de uso | ⏳ Pendiente |
+| III | Implementación física — DDL y DML | ✅ Completada |
+| IV | Consultas y casos de uso | 🚧 En desarrollo |
 | V | Temas técnicos avanzados | ⏳ Pendiente |
 
 ---
@@ -126,6 +126,30 @@ El modelo será documentado hasta alcanzar la **Tercera Forma Normal (3FN)**.
 Proceso:
 
 Modelo inicial → 1FN → 2FN → 3FN
+
+
+---
+
+## ⚙️ Etapa III — Implementación física — DDL y DML
+
+Esta tercera etapa consiste en la construcción de la base de datos en **SQL Server 2022 Express**, contemplando:
+
+### Script DDL (Data Definition Language)
+Se encarga de la creación de tablas y restricciones, incluyendo:
+- Creación de la estructura e integridad referencial (PRIMARY KEY, FOREIGN KEY con reglas de borrado/modificación).
+- Definición correcta de tipos de datos (VARCHAR, DECIMAL, DATETIME, etc.).
+- Implementación de restricciones formales (NOT NULL, UNIQUE, CHECK).
+
+### Script DML (Data Manipulation Language)
+Se encarga de la carga y modificación de datos[cite: 1], abordando:
+- Poblado inicial de la base de datos con 8 registros coherentes por tabla para comprobación.
+- Verificación en la inserción para asegurar que las restricciones de integridad operen correctamente.
+
+### Ubicación y ejecución
+Los scripts correspondientes se encuentran en la carpeta `sql/` y deben ejecutarse en el siguiente orden estricto:
+
+1. `sql/ddl/crear_bd.sql`
+2. `sql/dml/datos_prueba.sql`
 
 ---
 
