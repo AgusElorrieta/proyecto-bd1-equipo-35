@@ -1,6 +1,8 @@
 # Manifiesto Individual - Etapa II: Modelado Conceptual y Lógico
 
+**Equipo:** 35
 **Integrante:** Martin Espinoza
+**Fecha:** 30/09/2026
 
 ## 1. Qué hice y en qué participé
 
