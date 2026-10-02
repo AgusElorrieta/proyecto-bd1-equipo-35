@@ -74,14 +74,14 @@ INSERT INTO Promocion (id_promocion, nombre, precio_promocional, fecha_inicio, f
 (8, 'Lanzamiento Matera', 55000.00, '2026-07-01', '2026-07-15', 0, 7);
 
 INSERT INTO Venta (id_venta, comprobante, fecha_hora, id_cliente, id_vendedor, estado, observaciones) VALUES
-(1, 'FC-0001', '2026-09-10 10:30:00', 1, 1, 'entregada', 'Venta mostrador normal'),
-(2, 'FC-0002', '2026-09-11 11:15:00', 2, 2, 'pagada', 'Coordinar retiro'),
-(3, 'FC-0003', '2026-09-12 16:45:00', 3, 3, 'seniada', 'Termo por encargue'),
-(4, 'FC-0004', '2026-09-13 09:20:00', 4, 4, 'entregada', 'Envío por correo'),
-(5, 'FC-0005', '2026-09-14 18:00:00', 5, 5, 'pendiente', 'Esperando transferencia'),
-(6, 'FC-0006', '2026-09-15 12:10:00', 6, 1, 'cancelada', 'Cliente se arrepintió'),
-(7, 'FC-0007', '2026-09-16 14:30:00', 7, 2, 'seniada', 'Matera personalizada'),
-(8, 'FC-0008', '2026-09-17 17:00:00', 8, 3, 'entregada', 'Regalo de cumpleaños');
+(1, 'FC-0001', '2026-09-10T10:30:00', 1, 1, 'entregada', 'Venta mostrador normal'),
+(2, 'FC-0002', '2026-09-11T11:15:00', 2, 2, 'pagada', 'Coordinar retiro'),
+(3, 'FC-0003', '2026-09-12T16:45:00', 3, 3, 'seniada', 'Termo por encargue'),
+(4, 'FC-0004', '2026-09-13T09:20:00', 4, 4, 'entregada', 'Envío por correo'),
+(5, 'FC-0005', '2026-09-14T18:00:00', 5, 5, 'seniada', 'Senia del 50%, resta saldo'),
+(6, 'FC-0006', '2026-09-15T12:10:00', 6, 1, 'cancelada', 'Cliente se arrepintió'),
+(7, 'FC-0007', '2026-09-16T14:30:00', 7, 2, 'seniada', 'Matera personalizada'),
+(8, 'FC-0008', '2026-09-17T17:00:00', 8, 3, 'entregada', 'Regalo de cumpleaños');
 
 -- 4. TABLAS CON DEPENDENCIAS DE 3ER NIVEL
 
@@ -97,13 +97,13 @@ INSERT INTO Venta_Detalle (id_venta, nro_renglon, id_producto, cantidad, precio_
 
 INSERT INTO Venta_Pago (id_venta_pago, id_venta, id_metodo_pago, importe, fecha_pago, tipo_pago) VALUES
 (1, 1, 1, 35000.00, '2026-09-10', 'total'),
-(2, 2, 2, 19000.00, '2026-09-11', 'total'),
-(3, 3, 2, 42500.00, '2026-09-12', 'senia'), 
-(4, 4, 3, 55000.00, '2026-09-13', 'total'),
-(5, 5, 2, 1000.00, '2026-09-14', 'senia'), 
-(6, 6, 1, 16000.00, '2026-09-15', 'total'), 
-(7, 7, 4, 19500.00, '2026-09-16', 'senia'), 
-(8, 8, 1, 3500.00, '2026-09-17', 'total');
+(2, 2, 2, 16000.00, '2026-09-11', 'total'),
+(3, 3, 2, 42500.00, '2026-09-12', 'senia'),
+(4, 4, 3, 61000.00, '2026-09-13', 'total'),
+(5, 5, 2, 12750.00, '2026-09-14', 'senia'),
+(6, 3, 1, 25000.00, '2026-09-20', 'saldo'),
+(7, 7, 4, 19500.00, '2026-09-16', 'senia'),
+(8, 8, 1, 7500.00, '2026-09-17', 'total');
 
 INSERT INTO Envio (id_envio, id_venta, modalidad, direccion, localidad, provincia, codigo_postal, costo_envio, fecha_despacho, estado_envio) VALUES
 (1, 1, 'retiro', 'Mostrador', 'Corrientes', 'Corrientes', '3400', 0.00, '2026-09-10', 'entregado'),
