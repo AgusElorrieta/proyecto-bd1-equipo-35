@@ -3,6 +3,8 @@
 -- Caso de estudio: MateSereño
 -- Etapa IV - Consulta de ventas con saldo pendiente
 -- Responsable: Emmanuel David Otero
+-- Revision: Renato Roman (el detalle se suma por venta en una
+--           subconsulta, para que funcione con varios renglones)
 -- Motor: Microsoft SQL Server 2022
 -- =========================================================
 USE MateSerenoDB;
@@ -21,21 +23,27 @@ SELECT
     CONCAT(c.nombre, ' ', c.apellido) AS cliente,
     v.estado,
 
-    -- Total de la venta (neto del detalle + costo de envío)
-    (vd.cantidad * vd.precio_unitario - vd.descuento_aplicado)
-        + ISNULL(e.costo_envio, 0) AS total_venta,
+    -- Total de la venta (neto de todos los renglones + costo de envío)
+    d.neto + ISNULL(e.costo_envio, 0) AS total_venta,
 
     -- Suma de los pagos registrados para la venta
     SUM(vp.importe) AS total_pagado,
 
     -- Saldo pendiente por cobrar
-    ((vd.cantidad * vd.precio_unitario - vd.descuento_aplicado)
-        + ISNULL(e.costo_envio, 0)) - SUM(vp.importe) AS saldo_pendiente
+    d.neto + ISNULL(e.costo_envio, 0) - SUM(vp.importe) AS saldo_pendiente
 FROM Venta v
 INNER JOIN Cliente c
     ON v.id_cliente = c.id_cliente
-INNER JOIN Venta_Detalle vd
-    ON v.id_venta = vd.id_venta
+-- El detalle se suma antes, en una subconsulta: una fila por venta.
+-- Si se une Venta_Detalle directo, una venta con varios renglones
+-- se parte en varios grupos y el total sale por renglón.
+INNER JOIN (
+    SELECT id_venta,
+           SUM(cantidad * precio_unitario - descuento_aplicado) AS neto
+    FROM Venta_Detalle
+    GROUP BY id_venta
+) d
+    ON v.id_venta = d.id_venta
 INNER JOIN Venta_Pago vp
     ON v.id_venta = vp.id_venta
 LEFT JOIN Envio e
@@ -48,13 +56,8 @@ GROUP BY
     c.nombre,
     c.apellido,
     v.estado,
-    vd.cantidad,
-    vd.precio_unitario,
-    vd.descuento_aplicado,
+    d.neto,
     e.costo_envio
-HAVING SUM(vp.importe) < (
-    (vd.cantidad * vd.precio_unitario - vd.descuento_aplicado)
-    + ISNULL(e.costo_envio, 0)
-)
+HAVING SUM(vp.importe) < d.neto + ISNULL(e.costo_envio, 0)
 ORDER BY v.id_venta;
 GO
