@@ -81,7 +81,7 @@ proyecto-bd1-equipo-35/
 | I | Requerimientos y dominio del negocio | ✅ Completada |
 | II | Modelado conceptual y lógico | ✅ Completada |
 | III | Implementación física — DDL y DML | ✅ Completada |
-| IV | Consultas y casos de uso | 🚧 En desarrollo |
+| IV | Consultas y casos de uso | ✅ Implementada |
 | V | Temas técnicos avanzados | ⏳ Pendiente |
 
 ---
@@ -150,6 +150,20 @@ Los scripts correspondientes se encuentran en la carpeta `sql/` y deben ejecutar
 
 1. `sql/ddl/crear_bd.sql`
 2. `sql/dml/datos_prueba.sql`
+
+---
+
+## 📊 Etapa IV — Consultas y Casos de Uso
+
+En esta etapa se desarrollaron los scripts SQL para resolver las necesidades de información analítica y operativa del negocio. 
+
+### Listado de Consultas SQL
+Los archivos se encuentran alojados en el directorio `sql/consultas/`:
+1. `01_comprobante_venta.sql`: Detalle completo de factura y subtotales mediante funciones de ventana.
+2. `02_ventas_por_vendedor.sql`: Reporte agregado de rendimiento comercial por vendedor.
+3. `03_ventas_por_categoria.sql`: Reporte agregado de unidades y facturación por categoría.
+4. `04_ventas_con_saldo_pendiente.sql`: Consulta avanzada con control de señas, deducción de pagos y saldos.
+* `validar_etapa4.sql`: Script de validación transaccional utilizado para la auditoría de totales cruzados.
 
 ---
 
@@ -225,14 +239,14 @@ Esto permite registrar de forma clara la participación de cada miembro del equi
 
 Actualmente el equipo se encuentra trabajando en la:
 
-**Etapa III — Implementación física — DDL y DML**
+**Etapa V: Implementación de temas técnicos**
 
 **Próximos objetivos:**
-*   **Creación de Scripts DDL:** Codificar las sentencias `CREATE TABLE` para construir la base de datos relacional, definiendo correctamente los tipos de datos, Claves Primarias (PK) y Claves Foráneas (FK).
-*   **Implementación de Restricciones:** Traducir las reglas de negocio a restricciones de base de datos (ej. restricciones `CHECK` para los estados de venta, `UNIQUE` para teléfonos, y reglas de borrado en cascada).
-*   **Creación de Scripts DML:** Generar las sentencias `INSERT` para poblar las tablas con datos de prueba iniciales (clientes, productos, ventas, etc.).
-*   **Organización del Repositorio:** Guardar los scripts generados en las carpetas correspondientes (`sql/ddl/` y `sql/dml/`).
-*   **Manifiesto Individual:** Preparar y documentar la participación individual para la entrega del miércoles 30/09.
+* Descripción breve de cada uno de los temas tècnicos y fundamentos de aplicación en el caso de estudio desarrollado
+* Script SQL de implementación en el motor de bases de datos
+* Script SQL o resumen explicativo (en caso de corresponder) de demostración de utilización de cada tema técnico implementado.
+* Temas técnicos: Procedimientos y funciones almacenadas; Manejo de transacciones; Triggers de auditorías; Seguridad; Índices (optimización)
+*   **Manifiesto Individual:** Preparar y documentar la participación individual de la Etapa V.
 
 ---
 
