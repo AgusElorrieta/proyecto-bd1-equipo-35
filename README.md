@@ -141,7 +141,7 @@ Se encarga de la creación de tablas y restricciones, incluyendo:
 - Implementación de restricciones formales (NOT NULL, UNIQUE, CHECK).
 
 ### Script DML (Data Manipulation Language)
-Se encarga de la carga y modificación de datos[cite: 1], abordando:
+Se encarga de la carga y modificación de datos, abordando:
 - Poblado inicial de la base de datos con 8 registros coherentes por tabla para comprobación.
 - Verificación en la inserción para asegurar que las restricciones de integridad operen correctamente.
 
