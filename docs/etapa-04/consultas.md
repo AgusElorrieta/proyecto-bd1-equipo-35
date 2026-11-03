@@ -8,7 +8,7 @@ A continuación se detalla la resolución de las necesidades de información exi
 * **Necesidad que resuelve:** Generar el detalle completo de un comprobante de venta, consolidando los datos del cliente, vendedor, los renglones de productos, los subtotales parciales y el total acumulado.
 * **Estrategia SQL utilizada:** 
   * Combinación de tablas con **INNER JOIN** y **LEFT JOIN** para incluir ventas a consumidores ocasionales o retiros sin costos de envío predefinidos.
-  * Se implementó la función de ventana `SUM(...) OVER (PARTITION BY v.id_venta)`[cite: 13]. Esto permite calcular el subtotal general de la venta y añadirlo como columna sin tener que agrupar toda la consulta con `GROUP BY`, evitando así perder el nivel de detalle de cada producto en la factura.
+  * Se implementó la función de ventana `SUM(...) OVER (PARTITION BY v.id_venta)`. Esto permite calcular el subtotal general de la venta y añadirlo como columna sin tener que agrupar toda la consulta con `GROUP BY`, evitando así perder el nivel de detalle de cada producto en la factura.
 * **Resultado esperado:** Una tabla donde cada fila representa un renglón del comprobante, mostrando la información general repetida y el detalle específico del producto, con una columna calculada para el total a pagar.
 
 ### 2. Reportes Agregados (Rendimiento por Vendedor y Categoría)
