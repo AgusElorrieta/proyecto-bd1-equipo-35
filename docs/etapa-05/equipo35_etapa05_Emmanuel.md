@@ -28,7 +28,7 @@ Para garantizar que el script sea totalmente reproducible y libre de fallos:
 Archivos relacionados con mi aporte:
 - `sql/tecnico/04_seguridad.sql`
 - `docs/etapa-05/04_seguridad.md`
-- `docs/etapa-05/equipo35_etapa05_ema.md`
+- `docs/etapa-05/equipo35_etapa05_Emmanuel.md`
 - `docs/etapa-04/consultas.md`
 
 Commits relacionados:
