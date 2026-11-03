@@ -1,5 +1,5 @@
 # Tema Técnico: Optimización con Índices
-**Responsable:** Martin Espinoza
+
 
 ## 1. Descripción y Fundamentos
 En bases de datos con alto volumen transaccional, buscar información filtrando por fechas (como reportes mensuales) sin estructuras de optimización obliga al motor a leer físicamente toda la tabla (*Table Scan*). La implementación de índices estructurados (Agrupados y No Agrupados con `INCLUDE`) reduce drásticamente las lecturas lógicas de disco (I/O) y el uso de CPU. Se implementó una tabla aislada `Venta_Historica` cargada con 1.000.000 de registros para demostrar empíricamente esta mejora.
