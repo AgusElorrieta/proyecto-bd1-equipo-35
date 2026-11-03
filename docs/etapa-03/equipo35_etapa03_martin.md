@@ -26,4 +26,4 @@ Validé la robustez del modelo forzando errores intencionales. Comprobé exitosa
 * Documentación de las pruebas de restricciones en la sección 4.1 de `docs/implementacion.md`.
 
 ### Qué aprendí
-Comprendí de manera práctica cómo las operaciones de manipulación de datos (DML) están completamente subordinadas a las reglas definidas en el DDL[cite: 22]. Aprendí que un diseño físico robusto actúa como un escudo automático que protege la integridad de la base de datos sin depender exclusivamente de la lógica de la aplicación.
+Comprendí de manera práctica cómo las operaciones de manipulación de datos (DML) están completamente subordinadas a las reglas definidas en el DDL. Aprendí que un diseño físico robusto actúa como un escudo automático que protege la integridad de la base de datos sin depender exclusivamente de la lógica de la aplicación.
