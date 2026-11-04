@@ -8,8 +8,8 @@
 
 **Materia:** Base de Datos I  
 **Carrera:** Licenciatura en Sistemas de Información  
-**Universidad:** Universidad Nacional del Nordeste — FaCENA  
-**Equipo:** 35  
+**Universidad:** Universidad Nacional del Nordeste (UNNE) — FaCENA  
+**Equipo:** 35
 
 ### 👥 Integrantes
 
@@ -25,232 +25,254 @@
 
 MateSereño es un emprendimiento dedicado a la venta de productos materos premium, incluyendo mates artesanales, termos, bombillas, yerbas, materas y yerberas.
 
-El sistema propuesto busca organizar y centralizar la información necesaria para gestionar correctamente las operaciones de venta, especialmente en aspectos como:
+El sistema busca organizar y centralizar la información necesaria para gestionar las operaciones de venta, especialmente en aspectos como:
 
-- Control de stock
-- Registro de clientes
-- Gestión de vendedores
-- Historial de precios
-- Promociones
-- Pagos parciales y señas
-- Métodos de pago
-- Entregas y envíos
-- Registro detallado de ventas
+- Control de stock.
+- Registro de clientes y vendedores.
+- Conservación de precios de venta e historial de operaciones.
+- Promociones y descuentos.
+- Pagos parciales, señas y métodos de pago.
+- Entregas y envíos.
+- Registro detallado de las ventas.
 
 ---
 
 ## 🎯 Objetivo
 
-Diseñar, normalizar e implementar una **base de datos relacional** capaz de soportar el ciclo completo de ventas de MateSereño.
+Diseñar, normalizar e implementar una **base de datos relacional** capaz de soportar el ciclo de ventas de MateSereño y favorecer:
 
-El proyecto busca garantizar:
-
-- Integridad referencial
-- Consistencia de los datos
-- Reducción de redundancia
-- Trazabilidad de las operaciones
-- Conservación de información histórica
+- La integridad referencial y la consistencia de los datos.
+- La reducción de redundancia.
+- La trazabilidad de las operaciones.
+- La conservación de información histórica.
+- La seguridad, la confiabilidad y el rendimiento de las consultas.
 
 ---
 
 ## 🗂️ Estructura del repositorio
 
-proyecto-bd1-equipo-35/  
-│  
-├── docs/  
-│   ├── etapa-01/  
-│   ├── etapa-02/  
-│   ├── etapa-03/  
-│   ├── etapa-04/  
-│   └── etapa-05/  
-│  
-├── sql/  
-│   ├── ddl/  
-│   ├── dml/  
-│   ├── consultas/  
-│   └── tecnico/  
-│  
-└── README.md  
+```text
+proyecto-bd1-equipo-35/
+├── docs/
+│   ├── etapa-01/
+│   ├── etapa-02/
+│   ├── etapa-03/
+│   ├── etapa-04/
+│   └── etapa-05/
+├── sql/
+│   ├── ddl/
+│   ├── dml/
+│   ├── consultas/
+│   └── tecnico/
+└── README.md
+```
 
 ---
 
 ## 🚀 Etapas del proyecto
 
 | Etapa | Descripción | Estado |
-|---|---|---|
+|:---:|---|---|
 | I | Requerimientos y dominio del negocio | ✅ Completada |
 | II | Modelado conceptual y lógico | ✅ Completada |
 | III | Implementación física — DDL y DML | ✅ Completada |
-| IV | Consultas y casos de uso | ✅ Implementada |
-| V | Temas técnicos avanzados | ⏳ Pendiente |
+| IV | Consultas y casos de uso | ✅ Completada |
+| V | Temas técnicos avanzados | ✅ Completada |
 
 ---
 
 ## 🧩 Etapa I — Requerimientos
 
-Durante esta etapa se realizó el análisis inicial del negocio y se definieron:
+Se analizó el negocio y se definieron el alcance del sistema, los objetos de interés del dominio, las reglas de negocio, las restricciones, las cardinalidades principales y las decisiones iniciales de diseño.
 
-- Alcance del sistema
-- Objetos de interés del dominio
-- Reglas de negocio
-- Restricciones
-- Cardinalidades principales
-- Decisiones iniciales de modelado
-
-El documento correspondiente se encuentra en:
-
-`docs/etapa-01/`
+**Documentación:** [`docs/etapa-01/`](docs/etapa-01/)
 
 ---
 
 ## 🧠 Etapa II — Modelado
 
-La segunda etapa contempla:
+Se desarrolló el modelo conceptual y lógico de la base de datos:
 
-### Diagrama Entidad–Relación
+- **Diagrama Entidad–Relación (DER):** elaborado con notación de P. Chen mediante ERDPlus.
+- **Modelo relacional:** definición de relaciones, claves primarias y claves foráneas.
+- **Normalización:** análisis del modelo y documentación del proceso desde la primera hasta la tercera forma normal (1FN, 2FN y 3FN).
+- **Decisiones de diseño:** registro de los criterios utilizados para organizar la información y sus relaciones.
 
-Se construirá un DER utilizando **notación P. Chen** mediante **ERDPlus**.
-
-### Modelo Relacional
-
-Se realizará la transformación del DER a relaciones, indicando:
-
-- Claves primarias
-- Claves foráneas
-- Relaciones entre tablas
-
-### Normalización
-
-El modelo será documentado hasta alcanzar la **Tercera Forma Normal (3FN)**.
-
-Proceso:
-
-Modelo inicial → 1FN → 2FN → 3FN
-
+**Documentación:** [`docs/etapa-02/`](docs/etapa-02/)
 
 ---
 
-## ⚙️ Etapa III — Implementación física — DDL y DML
+## ⚙️ Etapa III — Implementación física (DDL y DML)
 
-Esta tercera etapa consiste en la construcción de la base de datos en **SQL Server 2022 Express**, contemplando:
+Se implementó la base de datos **`MateSerenoDB`** en **Microsoft SQL Server 2022 Express**.
 
-### Script DDL (Data Definition Language)
-Se encarga de la creación de tablas y restricciones, incluyendo:
-- Creación de la estructura e integridad referencial (PRIMARY KEY, FOREIGN KEY con reglas de borrado/modificación).
-- Definición correcta de tipos de datos (VARCHAR, DECIMAL, DATETIME, etc.).
-- Implementación de restricciones formales (NOT NULL, UNIQUE, CHECK).
+### Script DDL
 
-### Script DML (Data Manipulation Language)
-Se encarga de la carga y modificación de datos, abordando:
-- Poblado inicial de la base de datos con 8 registros coherentes por tabla para comprobación.
-- Verificación en la inserción para asegurar que las restricciones de integridad operen correctamente.
+[`sql/ddl/crear_bd.sql`](sql/ddl/crear_bd.sql)
 
-### Ubicación y ejecución
-Los scripts correspondientes se encuentran en la carpeta `sql/` y deben ejecutarse en el siguiente orden estricto:
+Define las tablas, claves primarias (`PRIMARY KEY`), claves foráneas (`FOREIGN KEY`), reglas de actualización y eliminación, tipos de datos y restricciones de integridad (`NOT NULL`, `UNIQUE` y `CHECK`).
+
+### Script DML
+
+[`sql/dml/datos_prueba.sql`](sql/dml/datos_prueba.sql)
+
+Contiene los registros de prueba utilizados para comprobar las relaciones entre las tablas y las restricciones del modelo.
+
+### Orden de ejecución inicial
 
 1. `sql/ddl/crear_bd.sql`
 2. `sql/dml/datos_prueba.sql`
 
+> **Precaución:** estos scripts pueden recrear tablas o limpiar datos. Deben ejecutarse en una base de pruebas; no volver a ejecutarlos sobre información que se desea conservar.
+
+**Documentación:** [`docs/etapa-03/`](docs/etapa-03/)
+
 ---
 
-## 📊 Etapa IV — Consultas y Casos de Uso
+## 📊 Etapa IV — Consultas y casos de uso
 
-En esta etapa se desarrollaron los scripts SQL para resolver las necesidades de información analítica y operativa del negocio. 
+Se desarrollaron consultas SQL para responder a necesidades operativas y de análisis de las ventas.
 
-### Listado de Consultas SQL
-Los archivos se encuentran alojados en el directorio `sql/consultas/`:
-1. `01_comprobante_venta.sql`: Detalle completo de factura y subtotales mediante funciones de ventana.
-2. `02_ventas_por_vendedor.sql`: Reporte agregado de rendimiento comercial por vendedor.
-3. `03_ventas_por_categoria.sql`: Reporte agregado de unidades y facturación por categoría.
-4. `04_ventas_con_saldo_pendiente.sql`: Consulta avanzada con control de señas, deducción de pagos y saldos.
-* `validar_etapa4.sql`: Script de validación transaccional utilizado para la auditoría de totales cruzados.
+| Archivo | Necesidad que resuelve |
+|---|---|
+| [`01_comprobante_venta.sql`](sql/consultas/01_comprobante_venta.sql) | Comprobante de venta con encabezado, detalle, subtotal por renglón y total final. |
+| [`02_ventas_por_vendedor.sql`](sql/consultas/02_ventas_por_vendedor.sql) | Reporte de cantidad de ventas y facturación por vendedor en un período. |
+| [`03_ventas_por_categoria.sql`](sql/consultas/03_ventas_por_categoria.sql) | Reporte de unidades vendidas y facturación por categoría. |
+| [`04_ventas_con_saldo_pendiente.sql`](sql/consultas/04_ventas_con_saldo_pendiente.sql) | Consulta avanzada para identificar ventas con pagos parciales y saldos pendientes. |
+| [`validar_etapa4.sql`](sql/consultas/validar_etapa4.sql) | Consultas auxiliares para comprobar la coherencia de los resultados. |
+
+Se aplicaron operaciones `JOIN`, funciones de agregación, agrupamiento y filtros según la necesidad de cada reporte.
+
+**Documentación:** [`docs/etapa-04/`](docs/etapa-04/)
+
+---
+
+## 🔧 Etapa V — Temas técnicos avanzados
+
+Se abordaron cinco mecanismos de SQL Server para reforzar la confiabilidad, la seguridad, la mantenibilidad y el rendimiento del sistema.
+
+### 1. Procedimientos y funciones almacenadas
+
+Se desarrollaron rutinas almacenadas para centralizar operaciones y cálculos del negocio, evitando repetir lógica SQL en distintos lugares.
+
+- **Script:** [`sql/tecnico/01_procedimientos_funciones.sql`](sql/tecnico/01_procedimientos_funciones.sql)
+- **Documentación:** [`docs/etapa-05/01_procedimientos_funciones.md`](docs/etapa-05/01_procedimientos_funciones.md)
+
+### 2. Manejo de transacciones
+
+Se implementó un procedimiento que registra el encabezado de una venta, incorpora su detalle y actualiza el stock dentro de una transacción, utilizando `BEGIN TRANSACTION`, `COMMIT`, `ROLLBACK` y `TRY/CATCH`.
+
+Se realizaron pruebas de venta correcta, stock insuficiente, error forzado después de insertar el encabezado y transacciones anidadas mediante `SAVE TRANSACTION`. Las pruebas verificaron que, ante los errores, no quedaran ventas ni detalles parciales y se conservara el stock original.
+
+- **Script:** [`sql/tecnico/02_transacciones.sql`](sql/tecnico/02_transacciones.sql)
+- **Documentación:** [`docs/etapa-05/02_transacciones.md`](docs/etapa-05/02_transacciones.md)
+
+### 3. Triggers de auditoría
+
+Se trabajó con disparadores para registrar cambios en los productos, incluyendo datos anteriores y posteriores, fecha, operación y usuario. También se contempló un mecanismo de control para impedir la eliminación directa de ventas.
+
+- **Script:** [`sql/tecnico/03_triggers_auditoria.sql`](sql/tecnico/03_triggers_auditoria.sql)
+- **Documentación:** [`docs/etapa-05/03_triggers_auditoria.md`](docs/etapa-05/03_triggers_auditoria.md)
+
+### 4. Seguridad y permisos
+
+Se abordó el control de acceso mediante usuarios, roles y permisos, diferenciando operaciones de lectura, modificación y ejecución de procedimientos almacenados.
+
+- **Script:** [`sql/tecnico/04_seguridad.sql`](sql/tecnico/04_seguridad.sql)
+- **Documentación:** [`docs/etapa-05/04_seguridad.md`](docs/etapa-05/04_seguridad.md)
+
+### 5. Optimización de consultas mediante índices
+
+Se preparó un caso de prueba con una tabla de ventas históricas para comparar el acceso a los datos sin índice, con índice agrupado y con índice de cobertura. Las mediciones de rendimiento se documentan por separado, ya que dependen del entorno donde se ejecuten.
+
+- **Script:** [`sql/tecnico/05_indices.sql`](sql/tecnico/05_indices.sql)
+- **Documentación:** [`docs/etapa-05/05_indices.md`](docs/etapa-05/05_indices.md)
+
+### Orden de ejecución recomendado
+
+Una vez creada y cargada `MateSerenoDB`, los scripts de la etapa se organizan de este modo:
+
+1. `sql/tecnico/01_procedimientos_funciones.sql`
+2. `sql/tecnico/02_transacciones.sql`
+3. `sql/tecnico/03_triggers_auditoria.sql`
+4. `sql/tecnico/04_seguridad.sql`
+5. `sql/tecnico/05_indices.sql`
+
+Este orden refleja las dependencias previstas entre los scripts, especialmente la utilización de procedimientos en las pruebas de seguridad. **Antes de ejecutar cada archivo, consultar sus instrucciones y realizar las pruebas en un entorno controlado.** Algunos scripts crean objetos, usuarios, permisos o grandes volúmenes de datos.
+
+**Documentación y manifiestos individuales:** [`docs/etapa-05/`](docs/etapa-05/)
 
 ---
 
 ## 🗃️ Entidades principales
 
-El modelo contempla actualmente las siguientes entidades:
+El modelo contempla diez tablas:
 
-- CATEGORIA
-- PRODUCTO
-- PROMOCION
-- CLIENTE
-- VENDEDOR
-- VENTA
-- VENTA_DETALLE
-- METODO_PAGO
-- VENTA_PAGO
-- ENVIO
+- `Categoria`
+- `Producto`
+- `Promocion`
+- `Cliente`
+- `Vendedor`
+- `Venta`
+- `Venta_Detalle`
+- `Metodo_Pago`
+- `Venta_Pago`
+- `Envio`
 
 ---
 
 ## 🔗 Relaciones principales
 
-- CATEGORIA 1:N PRODUCTO
-- PRODUCTO 1:N PROMOCION
-- CLIENTE 1:N VENTA
-- VENDEDOR 1:N VENTA
-- VENTA 1:N VENTA_DETALLE
-- PRODUCTO 1:N VENTA_DETALLE
-- VENTA N:M METODO_PAGO mediante VENTA_PAGO
-- VENTA 1:1 ENVIO
+- `Categoria` 1:N `Producto`
+- `Producto` 1:N `Promocion`
+- `Cliente` 1:N `Venta` (el cliente puede ser opcional en una venta)
+- `Vendedor` 1:N `Venta`
+- `Venta` 1:N `Venta_Detalle`
+- `Producto` 1:N `Venta_Detalle`
+- `Venta` N:M `Metodo_Pago`, mediante `Venta_Pago`
+- `Venta` 1:0..1 `Envio`
 
 ---
 
 ## 🛠️ Tecnologías y herramientas
 
-- Git
-- GitHub
-- ERDPlus
-- SQL
-- Sistema Gestor de Base de Datos a definir en etapas posteriores
+- Microsoft SQL Server 2022 Express.
+- SQL Server Management Studio (SSMS).
+- SQL / T-SQL.
+- ERDPlus.
+- Git y GitHub.
+- Markdown para documentación y manifiestos individuales.
 
 ---
 
 ## 📚 Organización de la documentación
 
-La carpeta `docs/` contiene el desarrollo conceptual y documental de cada etapa.
+La carpeta [`docs/`](docs/) contiene los materiales elaborados para cada etapa y los manifiestos individuales de sus integrantes.
 
-La carpeta `sql/` contendrá los scripts correspondientes a:
+La carpeta [`sql/`](sql/) agrupa los scripts según su propósito:
 
-- `ddl/` → creación de tablas y restricciones
-- `dml/` → carga y modificación de datos
-- `consultas/` → consultas SQL del sistema
-- `tecnico/` → procedimientos, triggers, seguridad, índices y otros mecanismos avanzados
+- `ddl/`: definición de tablas y restricciones.
+- `dml/`: carga de datos de prueba.
+- `consultas/`: comprobantes, reportes y consultas de negocio.
+- `tecnico/`: procedimientos, funciones, transacciones, triggers, seguridad e índices.
 
 ---
 
 ## 👨‍💻 Trabajo colaborativo
 
-El proyecto utiliza Git y GitHub para mantener la trazabilidad de los aportes realizados por cada integrante.
+El proyecto utiliza Git y GitHub para mantener un historial de cambios y facilitar la colaboración entre los integrantes del Equipo 35.
 
-Durante las distintas etapas se utilizarán:
-
-- Commits
-- Issues
-- Pull Requests
-- Archivos de contribución individual
-
-Esto permite registrar de forma clara la participación de cada miembro del equipo.
+Las contribuciones se registran mediante commits, archivos compartidos y manifiestos individuales. Los *issues* y *pull requests* pueden utilizarse cuando corresponda para organizar revisiones y mejoras.
 
 ---
 
 ## 📄 Estado actual
 
-Actualmente el equipo se encuentra trabajando en la:
+Las **cinco etapas previstas del proyecto** se encuentran documentadas y organizadas en este repositorio, desde el análisis inicial y el modelado hasta la implementación SQL, las consultas de negocio y los temas técnicos avanzados.
 
-**Etapa V: Implementación de temas técnicos**
-
-**Próximos objetivos:**
-* Descripción breve de cada uno de los temas tècnicos y fundamentos de aplicación en el caso de estudio desarrollado
-* Script SQL de implementación en el motor de bases de datos
-* Script SQL o resumen explicativo (en caso de corresponder) de demostración de utilización de cada tema técnico implementado.
-* Temas técnicos: Procedimientos y funciones almacenadas; Manejo de transacciones; Triggers de auditorías; Seguridad; Índices (optimización)
-*   **Manifiesto Individual:** Preparar y documentar la participación individual de la Etapa V.
+La base de datos utilizada es **`MateSerenoDB`**, sobre **Microsoft SQL Server 2022 Express**. Los resultados de las pruebas y las decisiones de implementación se desarrollan en los documentos de cada etapa.
 
 ---
 
-<p align="center">
-  <b>Proyecto Base de Datos I — Equipo 35</b><br>
-  <i>MateSereño 🧉</i>
-</p>
+**Proyecto Base de Datos I — Equipo 35**  
+*MateSereño 🧉*
